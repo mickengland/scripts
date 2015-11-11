@@ -1,6 +1,8 @@
 #!/bin/bash
 if [ -d  "/mnt/swap1" ]
- echo "swap1 already exists... exiting."
+then
+  echo "swap1 already exists... exiting."
+	exit
 else
 
 # Setup swap space
@@ -16,10 +18,7 @@ else
 # Enable swappineess
 sed -i 's/vm.swappiness = 0/vm.swappiness = 60/' /etc/sysctl.conf
 
-fi
-
 # Check if data dir exists
-if [ ! -d "/data" ]
 	mkdir /data
 	chown hudson.hudson /data
 fi
