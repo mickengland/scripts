@@ -13,7 +13,7 @@ else
  sysctl vm.swappiness=60
 
 # Modify /etc/fstab
-	cat '/mnt/swap1 none swap sw 0 0' >> /etc/fstab
+	echo '/mnt/swap1 none swap sw 0 0' >> /etc/fstab
 
 # Enable swappineess
 sed -i 's/vm.swappiness = 0/vm.swappiness = 60/' /etc/sysctl.conf
