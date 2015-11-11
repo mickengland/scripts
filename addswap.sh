@@ -1,4 +1,9 @@
 #!/bin/bash
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
 if [ -d  "/mnt/swap1" ]
 then
   echo "swap1 already exists... exiting."
